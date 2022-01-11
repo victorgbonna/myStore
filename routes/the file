@@ -1,0 +1,25 @@
+items [
+  { name: 'one for 150', qty: '1' },
+  { name: 'one for 50', qty: '1' },
+  { name: 'one for 100', qty: '2' }
+]
+{
+  data: [
+    'ztsp0r13tg',
+    40000,
+    'test2@test.com',
+    'everistus madman',
+    '08102603302',
+    [ [Object], [Object], [Object] ]
+  ]
+}
+{
+  newPayment: {
+    reference: 'ztsp0r13tg',
+    amount: 40000,
+    email: 'test2@test.com',
+    full_name: 'everistus madman',
+    phone: '08102603302',
+    items: [ [Object], [Object], [Object] ]
+  }
+}

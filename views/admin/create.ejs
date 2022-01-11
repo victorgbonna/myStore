@@ -1,0 +1,55 @@
+<%-include('../includes/head')%>
+<body class="text-gray-800 font-family">
+    <div class="space-y-6 phone:space-y-4 overflow-x-hidden">
+        <%-include('../includes/nav')%>
+        
+        <div class="hidden h-24" id="space">&nbsp;</div>
+        <main class="space-y-12 tablet:space-y-10" id="main">
+            <h2 class="text-md text-center"><b>Add Product</b></h2>           
+            <div class="border-2 border-yellow-100 shadow-md p-8 text-sm w-8/12 mx-auto  tablet:p-2 tablet:w-10/12 phone:p-1 phone:w-full">
+                <form action="" class="space-y-7" id="AddProductForm" enctype="multipart/form-data">
+                    <p class="text-xs text-gray-400 text-center" id="error">Please provide the details below</p>
+                    
+                    <input type="text" required  placeholder="Category*" class="border-2 rounded p-2 w-full" name="category" id="category">
+                    <div class="">
+                        <div class="space-y-2 mb-4" id="img_parent">
+                            <input type="file" id="file_upload" style="display: none;" accept="image/jpeg, image/png, image/jpg" name="images" multiple="multiple">
+                            <!-- <input name="images2[]2" type="file" multiple="" id="file_upload" accept="image/jpeg, image/png, image/jpg"> -->
+                            <!-- <input type="file" id="file_upload" style="display: non;" accept="image/jpeg, image/png, image/jpg" name="images2" multiple="multiple"> -->
+                        <!-- <input type="file" name="t">f -->
+                            <h2 class="font-bold">Add Photos</h2> 
+                            <small class="text-xs text-gray-500">Add at least a photo. Your first photo becomes the cover photo.</small>
+                        </div>
+                        <div class="flex align-center">
+                            <!-- <input type="file" id="file_upload" style="display: none;" accept="image/jpeg, image/png, image/jpg" name="image" multiple="multiple"> -->
+                            <a href="#">
+                                <svg onclick="_upload()" class="w-24 h-24 bg-yellow-200 rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            </a>
+                            <div class="grid grid-cols-4 gap-2 space-y-2 ml-12" id="img_div">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-x-8 ">
+                        <input type="text" required placeholder="Product Name*" name="name" class="border-2 rounded p-2 w-5/12 phone:w:5/12" id="name" > 
+                        <!-- <div></div> -->
+                        <div class="relative mr-6 inline-block w-3/12 border-2 rounded phone:w-5/12">
+                            <div class="absolute left-0 top-0 bg-yellow-100 border-2 h-full w-10 text-2xl text-center">
+                                #
+                            </div>
+                            <input type="number" required class="rounded border-0 p-2 text-center" name="price" placeholder="Price*" id="price" >
+                        </div>
+                        <!-- <input type="text" placeholder="Price" class="border-2 rounded p-2 w-5/12"> -->
+                    </div>
+                    <textarea cols="30" rows="10" required name="description" placeholder="Description*" id="description"  class="border-2 rounded p-2 w-full focus:ring-2 focus:ring-yellow-200 focus:outline-none"></textarea>
+                    <input class="block p-4 btn bg-yellow-200 hover:bg-yellow-300 text-white mx-auto w-36" type="submit" value="POST PRODUCT">
+                </form>
+            </div>            
+        </main>
+    <%-include('../includes/footer')%>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/create.js"></script>
+    </body>
+</html>
+
+
+

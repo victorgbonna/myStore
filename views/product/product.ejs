@@ -1,0 +1,61 @@
+<%-include('../includes/head')%>
+<body class="text-gray-800 font-family">
+    <div class="space-y-6 phone:space-y-4 overflow-x-hidden">
+        <%-include('../includes/nav')%>
+        <!-- <div class="hidden h-36" id="space">&nbsp;</div> -->
+        <main class="space-y-20 tablet:space-y-10" id="main">
+            <div class="space-y-10">
+                <div class="grid grid-cols-2 mx-4 tablet:grid-cols-1 tablet:mx-1">
+                    
+                    <div class="p-4 mx-auto tablet:p-2">
+                        <div class="cursor-pointer px-12 tablet:px-1" >
+                            <img src="/img/product_images/<%=product.img_files[0]%>" alt="" width="500px" class="h-72">
+                        </div>
+                        <div class="grid grid-cols-4 mt-10 mx-20 phone:mx-4 phone:grid-cols-3 tablet:grid-cols-3 tablet:mx-10">
+                            <%product.img_files.forEach(img=>{%>
+                                <div class="cursor-pointer hover:bg-yellow-300 p-1">
+                                    <img src="/img/product_images/<%=img%>" alt="stew" class=" h-24 w-24 rounded">
+                                </div>
+                            <%})%>
+                        </div>
+                    </div>
+                    <div class="p-2 space-y-6">
+                        <div>
+                            <h2 class="text-xl font-bold uppercase w-72"><%=product.name%></h2>
+                            <p>#<%=product.new_price%></p>
+                            <div class="">
+                                <p class="text-sm mt-4"><%=product.description%></p>
+                            </div>
+                        </div>
+                        <div class="m-2 space-y-4">
+                            <a href="/add-to-cart/<%=product._id%>" class="block p-4 btn bg-yellow-200 hover:bg-yellow-300 text-white w-4/12">ADD TO CART<a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-12 phone:mx-2 tablet:mx-4">
+                    <h2>You Might Also Like</h2>
+                    <div class="grid gap-2 grid-cols-5 mt-10 phone:grid-cols-1 phone:mx-12 tablet:space-y-6 tablet:grid-cols-3">
+                        <%subProducts.forEach(product=>{%>
+                            <div class="h-60 w-48 card-normal cursor-pointer bg-yellow-100 hover:bg-yellow-200">
+                               <a href="/product/<%=product.slug%>">
+                                    <img src="/img/product_images/<%=product.img_files[0]%>" alt="stew" class="w-full h-44">
+                                    <div class="m-4">
+                                        <span class="font-bold text-sm"><%=product.name%></span>
+                                        <span class="block text-gray-500 text-xs"><%=truncate(product.description,25)%></span>
+                                    </div>
+                                    <div class="badge text-black-200">
+                                        <svg class="w-3 inline block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" 
+                                        stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-md"><small><%=formatDate(product.createdAt)%></small></span>
+                                    </div>
+                                </a>
+                            </div>
+                        <%})%>
+                    </div>        
+                </div>
+            </div>
+        </main>
+    <%-include('../includes/footer')%>
+    <script src="../js/fixed.js"></script>
+    </body>
+    </html>

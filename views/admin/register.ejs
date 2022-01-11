@@ -1,0 +1,23 @@
+<%-include('../includes/head')%>
+<body class="text-gray-800 font-family">
+    <div class="space-y-6 phone:space-y-4 overflow-x-hidden">
+        <%-include('../includes/nav')%>
+        <div class="hidden" id="space">&nbsp;</div>
+        <main class="text-center" id="main">
+            
+            <p>You are registering an admin like you</p>
+            <p>Do not register someone you cannot share business details with</p>
+            <form method="POST" action="/register" class="p-10 space-y-4">
+                Name
+                <input type="text" name="name" class="p-2">
+                Email
+                <input type="email" name="email" class="p-2">
+                Password
+                <input type="password" name="password" class="p-2">
+                <input type="submit" value="login" class="p-2">
+            </form>
+        </main>
+    </div>
+<%-include('../includes/footer')%>
+</body>
+</html>

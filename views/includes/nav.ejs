@@ -1,0 +1,48 @@
+<nav class="bg-gray-50 flex justify-between py-6 px-8 phone:grid phone:grid-cols-2 phone:px-2 w-full z-40" id="nav">
+    <div class="space-x-48 tablet:space-x-20 phone:space-x-0">
+        <h2 class="font-semibold text-2xl inline-block"><a href="/">MyStore</a></h2>
+         <div class="inline-block space-x-16 phone:space-x-0 phone:hidden">
+             <span class="inline-block">
+                 <a href="" class="font-medium phone:font-bold">Categories</a>
+             </span>
+             <div class="relative mr-6 inline-block shadow-md phone:hidden">
+                 <input type="text" class="shadow rounded border-0 p-2 w-96" placeholder="Search anything...">
+                 <div class="absolute right-1 top-2">
+                     <a href="/admin.html"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></a>
+                 </div>
+             </div>
+            
+         </div>
+     </div>
+     <div class="hidden phone:block relative" id="burger"> 
+         <svg class="w-6 h-6 absolute right-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+     </div>
+    <div class="flex justify-between w-60 text-sm phone:hidden phone:col-span-2 phone:w-full" id="menu">
+        <%if (user){%>
+            <li class="flex py-1"><a href="/product/create">Create product</a></li>   
+            <li class="flex py-1"><a href="/admin/register" class="">Add Admin</a></li>
+        <%}else{%>
+            <li class="flex py-1"><a href="">Contacts</a></li>   
+            <li class="flex py-1"><a href="" class="">Help</a></li>
+            
+            <li class="flex py-1"><a href="/login" class="">Login</a></li>
+        <%}%> 
+        <li class="flex py-1">
+            <a href="/shopping-cart" class="flex">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                <span>Cart <small id="totalQty"><%=cart.totalQty%></small></span>
+            </a>
+        </li>
+    </div>
+    <div class="relative phone:inline-block hidden mt-3 ml-2 w-80">
+     <input type="text" class="shadow rounded border-0 p-2 w-full" placeholder="Search anything...">
+     <div class="absolute right-1 top-2" id="last">
+         <a href="/admin.html"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></a>
+     </div>
+ </div>
+</nav>
+<% if (message.type) { %>
+    <div class="bg-<%=message.type%>-50 p-3 text-<%=message.type%>-500 p-3 mx-auto w-10/12">
+        <p class="text-center"><%= message.body %></p>
+    </div>
+<% } %>

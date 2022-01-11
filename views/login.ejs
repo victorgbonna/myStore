@@ -1,0 +1,18 @@
+<%-include('includes/head')%>
+<body class="text-gray-800 font-family">
+    <div class="space-y-6 phone:space-y-4 overflow-x-hidden">
+        <%-include('includes/nav')%>
+        <div class="hidden" id="space">&nbsp;</div>
+        <main class="space-y-20 phone:space-y-10 p-4 text-center" id="main">
+            <form method="POST" action="/login" class="p-10 space-y-4">
+                Email
+                <input name="email" class="border-2 rounded p-2 w-full">
+                Password
+                <input type="password" name="password" class="border-2 rounded p-2 w-full">
+                <input type="submit" value="login" class="p-2">
+            </form>
+        </main>
+    </div>
+<%-include('includes/footer')%>
+</body>
+</html>
